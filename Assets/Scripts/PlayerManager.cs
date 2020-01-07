@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     [Range(2, 4)] public int NumberOfPlayers = 2; //contains the number of players that will be controlled by how many controllers. NEVER less than 4
+    [Range(100, 1000)] public float PlayerMovementSpeed = 750f;
 
     public GameObject PlayerControllerPrefab;
 
@@ -16,6 +17,7 @@ public class PlayerManager : MonoBehaviour
             GameObject controller = Instantiate(PlayerControllerPrefab);
             PlayerController controllerComponent = controller.GetComponent<PlayerController>();
             controllerComponent.PlayerNumber = i;
+            controllerComponent.movementSpeed = PlayerMovementSpeed;
         }
     }
 
